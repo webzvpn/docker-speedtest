@@ -15,15 +15,15 @@ while true; do
     echo -n $R | tr '\n' ' '
     echo ""
 
-    echo "speedtest.ping:$PING|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
-    echo "speedtest.down:$DOWN|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
-    echo "speedtest.up:$UP|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+    echo "speedtest.$SERV_NAME.ping:$PING|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+    echo "speedtest.$SERV_NAME.down:$DOWN|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+    echo "speedtest.$SERV_NAME.up:$UP|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
   else 
     echo "$(date "$DF") Timeout occured"
 
-    echo "speedtest.timeout:1|c" > /dev/udp/$STATSD_HOST/$STATSD_PORT
-    echo "speedtest.down:0|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
-    echo "speedtest.up:0|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+    echo "speedtest.$SERV_NAME.timeout:1|c" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+    echo "speedtest.$SERV_NAME.down:0|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+    echo "speedtest.$SERV_NAME.up:0|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
   fi
 
   echo "speedtest.completed:1|c" > /dev/udp/$STATSD_HOST/$STATSD_PORT
