@@ -4,7 +4,7 @@ Run a speedtest periodically and report the metrics to statsd.
 
 ## Usage
 ```
-docker run --name speedtest -d -e STATSD_HOST=192.168.59.103 -e FREQUENCY=600 -e TZ=America/Denver kurtharriger/speedtest
+docker run --name speedtest -d -e SERV_NAME=SERV1 -e STATSD_HOST=192.168.59.103 -e FREQUENCY=600 -e TZ=America/Denver kurtharriger/speedtest
 
 ```
 
