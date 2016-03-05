@@ -26,7 +26,7 @@ while true; do
     echo "speedtest.$SERV_NAME.up:0|g" > /dev/udp/$STATSD_HOST/$STATSD_PORT
   fi
 
-  echo "speedtest.completed:1|c" > /dev/udp/$STATSD_HOST/$STATSD_PORT
+  echo "speedtest.$SERV_NAME.completed:1|c" > /dev/udp/$STATSD_HOST/$STATSD_PORT
   echo "$(date "$DF") Pausing for $FREQUENCY seconds."
   sleep $FREQUENCY
 done
