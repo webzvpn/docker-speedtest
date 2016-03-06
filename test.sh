@@ -5,7 +5,7 @@ while true; do
 
   echo "$(date "$DF") Testing..."
 
-  R=$(speedtest-cli --simple 2 $MORE_ARG>>/var/log/speedtest.err | tee -a /var/log/speedtest.out)
+  R=$(speedtest-cli $MORE_ARG --simple 2>>/var/log/speedtest.err | tee -a /var/log/speedtest.out)
   if [ $? -eq 0 ]; then
     PING=$(echo $R | sed -n -e 's/.*Ping: \([0-9\.]*\).*/\1/p')
     DOWN=$(echo $R | sed -n -e 's/.*Download: \([0-9\.]*\).*/\1/p')
