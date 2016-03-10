@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt-get update
 RUN apt-get -y install python
-ADD https://raw.githubusercontent.com/kurtharriger/speedtest-cli/master/speedtest_cli.py /usr/local/bin/speedtest-cli
+ADD https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest_cli.py /usr/local/bin/speedtest-cli
 RUN chmod +x /usr/local/bin/speedtest-cli
 ADD test.sh /usr/local/bin/test.sh
 ENV SERV_NAME TEST
