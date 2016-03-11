@@ -1,5 +1,5 @@
 FROM alpine:3.3
-RUN apk add --update python
+RUN apk add --update python && rm -rf /var/cache/apk/*
 ADD https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest_cli.py /usr/local/bin/speedtest-cli
 RUN chmod +x /usr/local/bin/speedtest-cli
 ADD test.sh /usr/local/bin/test.sh
