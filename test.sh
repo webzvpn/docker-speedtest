@@ -2,7 +2,7 @@
 
 DF="+%Y-%m-%d %H:%M:%S %Z"
 ip_addr="$(wget http://ipinfo.io/ip -qO -)"
-SERV_NAME=${ip_addr//./\-}
+SERV_NAME=${ip_addr//./\x}
 while true; do
 
   echo "$(date "$DF") Testing..."
